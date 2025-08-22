@@ -149,6 +149,9 @@ export async function addLiquidity(
   await putChainObject(ctx, tickUpperData);
   await putChainObject(ctx, tickLowerData);
 
+  console.log("Pool state after: ")
+  console.dir(JSON.stringify(pool), { depth: null, colors: true });
+
   // Return position holder's new token balances
   const liquidityProviderToken0Balance = await fetchOrCreateBalance(ctx, ctx.callingUser, token0InstanceKey);
   const liquidityProviderToken1Balance = await fetchOrCreateBalance(ctx, ctx.callingUser, token1InstanceKey);

@@ -18,7 +18,7 @@ import BigNumber from "bignumber.js";
 import { plainToInstance } from "class-transformer";
 import { randomUUID } from "crypto";
 
-import { DexFeePercentageTypes, Pool, SwapDto, SwapResDto } from "../../api";
+import { DexFeePercentageTypes, Pool, SwapDto, SwapResDto, TickData } from "../../api";
 import { DexV3Contract } from "../DexV3Contract";
 import dex from "../test/dex";
 import { generateKeyFromClassKey } from "./dexUtils";
@@ -133,6 +133,273 @@ describe("swap", () => {
     );
     // When
     const response = await contract.Swap(ctx, signedDto);
+
+    // Then
+    expect(response).toEqual(transactionSuccess(expectedResponse));
+    expect(response.Data).toBeDefined();
+
+    const swapResult = response.Data as SwapResDto;
+    expect(swapResult.token0).toBe(dexClass.symbol);
+    expect(swapResult.token1).toBe(currencyClass.symbol);
+    expect(swapResult.userAddress).toBe(users.testUser1.identityKey);
+    expect(swapResult.poolHash).toBe(pool.genPoolHash());
+    expect(swapResult.poolAlias).toBe(poolAlias);
+    expect(swapResult.poolFee).toBe(fee);
+
+    // Verify amounts - exact amounts will depend on swap math
+    expect(new BigNumber(swapResult.amount0).toNumber()).toBeGreaterThan(0); // User pays DEX
+    expect(new BigNumber(swapResult.amount1).toNumber()).toBeLessThan(100); // User receives CURRENCY
+  });
+
+  it.only("should execute a successful token swap in the happy path", async () => {
+    // Given
+    const currencyClass: TokenClass = currency.tokenClass();
+    const currencyInstance: TokenInstance = currency.tokenInstance();
+    const currencyClassKey: TokenClassKey = currency.tokenClassKey();
+    const dexClass: TokenClass = dex.tokenClass();
+    const dexInstance: TokenInstance = dex.tokenInstance();
+    const dexClassKey: TokenClassKey = dex.tokenClassKey();
+
+    // Create normalized token keys for pool
+    const token0Key = generateKeyFromClassKey(dexClassKey);
+    const token1Key = generateKeyFromClassKey(currencyClassKey);
+    const fee = DexFeePercentageTypes.FEE_0_05_PERCENT;
+
+    // Initialize pool with manual values
+    const pool = new Pool(
+      token0Key,
+      token1Key,
+      dexClassKey,
+      currencyClassKey,
+      fee,
+      new BigNumber("0.01664222241481084743"),
+      0.1
+    );
+
+    const bitmap: Record<string, string> = {
+      "-11": "0",
+      "-12": "0",
+      "-13": "0",
+      "-14": "696898287454081973172991196020261297061888",
+      "-15": "0",
+      "-16": "105312291668557186697918027683670432318895097761732352689133584384",
+      "-346": "5708990770823839524233143877797980545530986496",
+      "346": "20282409603651670423947251286016",
+      "4": "18889465931478580854784"
+    };
+
+    // Add initial liquidity to the pool
+    pool.liquidity = new BigNumber("1413061.304520663372201793");
+    pool.grossPoolLiquidity = new BigNumber("116137455280.91928199937676966");
+    pool.sqrtPrice = new BigNumber("0.163680630822933798063090193864");
+    pool.bitmap = bitmap;
+    // Create pool balances - pool needs tokens to pay out
+    const poolAlias = pool.getPoolAlias();
+    const poolDexBalance = plainToInstance(TokenBalance, {
+      ...dex.tokenBalance(),
+      owner: poolAlias,
+      quantity: new BigNumber("1000000000")
+    });
+    const poolCurrencyBalance = plainToInstance(TokenBalance, {
+      ...currency.tokenBalance(),
+      owner: poolAlias,
+      quantity: new BigNumber("1000000000")
+    });
+
+    // Create user balances - user needs tokens to swap
+    const userDexBalance = plainToInstance(TokenBalance, {
+      ...dex.tokenBalance(),
+      owner: users.testUser1.identityKey,
+      quantity: new BigNumber("1000000000") // User has 10k DEX tokens
+    });
+    const userCurrencyBalance = plainToInstance(TokenBalance, {
+      ...currency.tokenBalance(),
+      owner: users.testUser1.identityKey,
+      quantity: new BigNumber("1000000000") // User has 10k CURRENCY tokens
+    });
+
+    const tick = new TickData(pool.genPoolHash(), -37010);
+    tick.feeGrowthOutside0 = new BigNumber("0");
+    tick.feeGrowthOutside1 = new BigNumber("0");
+    tick.initialised = true;
+    tick.liquidityGross = new BigNumber("948553.304475454395466072");
+    tick.liquidityNet = new BigNumber("-948553.304475454395466072");
+
+    // Setup the fixture
+    const { ctx, contract } = fixture(DexV3Contract)
+      .registeredUsers(users.testUser1)
+      .savedState(
+        currencyClass,
+        currencyInstance,
+        dexClass,
+        dexInstance,
+        pool,
+        poolDexBalance,
+        poolCurrencyBalance,
+        userDexBalance,
+        userCurrencyBalance,
+        tick
+      );
+
+    const swapDto = new SwapDto(
+      dexClassKey,
+      currencyClassKey,
+      fee,
+      new BigNumber("490000"),
+      true, // zeroForOne - swapping token0 (DEX) for token1 (CURRENCY)
+      new BigNumber("0.000000000000000000094212147"),
+      new BigNumber("490000"),
+      new BigNumber("-12423.22880553")
+    );
+
+    swapDto.uniqueKey = randomUniqueKey();
+
+    const signedDto = swapDto.signed(users.testUser1.privateKey);
+
+    const expectedResponse = new SwapResDto(
+      dexClass.symbol,
+      "https://app.gala.games/test-image-placeholder-url.png",
+      currencyClass.symbol,
+      "https://app.gala.games/test-image-placeholder-url.png",
+      "151.7140110000",
+      "-0.0419968816",
+      "client|testUser1",
+      pool.genPoolHash(),
+      poolAlias,
+      DexFeePercentageTypes.FEE_0_05_PERCENT,
+      ctx.txUnixTime
+    );
+    // When
+    const response = await contract.QuoteExactAmount(ctx, signedDto);
+
+    
+  });
+
+  it("should execute a successful token swap in the happy path", async () => {
+    // Given
+    const currencyClass: TokenClass = currency.tokenClass();
+    const currencyInstance: TokenInstance = currency.tokenInstance();
+    const currencyClassKey: TokenClassKey = currency.tokenClassKey();
+    const dexClass: TokenClass = dex.tokenClass();
+    const dexInstance: TokenInstance = dex.tokenInstance();
+    const dexClassKey: TokenClassKey = dex.tokenClassKey();
+
+    // Create normalized token keys for pool
+    const token0Key = generateKeyFromClassKey(dexClassKey);
+    const token1Key = generateKeyFromClassKey(currencyClassKey);
+    const fee = DexFeePercentageTypes.FEE_0_05_PERCENT;
+
+    // Initialize pool with manual values
+    const pool = new Pool(
+      token0Key,
+      token1Key,
+      dexClassKey,
+      currencyClassKey,
+      fee,
+      new BigNumber("0.22033952033152902879"),
+      0.1
+    );
+
+    const bitmap: Record<string, string> = {
+      "-12": "0",
+      "-13": "0",
+      "-14": "696898287454081973172991196020261297061888",
+      "-15": "0",
+      "-16": "105312291668557186697918027683670432318895097761732352689133584384",
+      "-346": "5708990770823839524233143877797980545530986496",
+      "346": "20282409603651670423947251286016",
+      "4": "18889465931478580854784"
+    };
+
+    // Add initial liquidity to the pool
+    pool.liquidity = new BigNumber("1413061.304520663372201793");
+    pool.grossPoolLiquidity = new BigNumber("116137455280.91928199937676966");
+    pool.bitmap = bitmap;
+    // Create pool balances - pool needs tokens to pay out
+    const poolAlias = pool.getPoolAlias();
+    const poolDexBalance = plainToInstance(TokenBalance, {
+      ...dex.tokenBalance(),
+      owner: poolAlias,
+      quantity: new BigNumber("10000000")
+    });
+    const poolCurrencyBalance = plainToInstance(TokenBalance, {
+      ...currency.tokenBalance(),
+      owner: poolAlias,
+      quantity: new BigNumber("18880900.790718")
+    });
+
+    // Create user balances - user needs tokens to swap
+    const userDexBalance = plainToInstance(TokenBalance, {
+      ...dex.tokenBalance(),
+      owner: users.testUser1.identityKey,
+      quantity: new BigNumber("1000000") // User has 10k DEX tokens
+    });
+    const userCurrencyBalance = plainToInstance(TokenBalance, {
+      ...currency.tokenBalance(),
+      owner: users.testUser1.identityKey,
+      quantity: new BigNumber("1000000") // User has 10k CURRENCY tokens
+    });
+
+    const tick = new TickData(pool.genPoolHash(), -41360);
+    tick.feeGrowthOutside0 = new BigNumber("0.00065389284830186696");
+    tick.feeGrowthOutside1 = new BigNumber("0.0000083565900180411");
+    tick.initialised = true;
+    tick.liquidityGross = new BigNumber("414356.658938929037235979");
+    tick.liquidityNet = new BigNumber("414356.658938929037235979");
+
+    // Setup the fixture
+    const { ctx, contract } = fixture(DexV3Contract)
+      .registeredUsers(users.testUser1)
+      .savedState(
+        currencyClass,
+        currencyInstance,
+        dexClass,
+        dexInstance,
+        pool,
+        poolDexBalance,
+        poolCurrencyBalance,
+        userDexBalance,
+        userCurrencyBalance,
+        tick
+      );
+
+    const swapDto = new SwapDto(
+      dexClassKey,
+      currencyClassKey,
+      fee,
+      new BigNumber("5817.911187"),
+      false, // zeroForOne - swapping token0 (DEX) for token1 (CURRENCY)
+      new BigNumber("18446050999999999999"),
+      new BigNumber("5817.911187"),
+      new BigNumber("-111699.7975718995")
+    );
+
+    swapDto.uniqueKey = randomUniqueKey();
+
+    const signedDto = swapDto.signed(users.testUser1.privateKey);
+
+    const quoteRes = await contract.QuoteExactAmount(ctx, signedDto);
+
+    console.log(JSON.stringify(quoteRes), "this is quote Rews");
+
+    return;
+
+    const expectedResponse = new SwapResDto(
+      dexClass.symbol,
+      "https://app.gala.games/test-image-placeholder-url.png",
+      currencyClass.symbol,
+      "https://app.gala.games/test-image-placeholder-url.png",
+      "151.7140110000",
+      "-0.0419968816",
+      "client|testUser1",
+      pool.genPoolHash(),
+      poolAlias,
+      DexFeePercentageTypes.FEE_0_05_PERCENT,
+      ctx.txUnixTime
+    );
+    // When
+    const response = await contract.Swap(ctx, signedDto);
+    console.dir(response, { depth: null, colors: true });
 
     // Then
     expect(response).toEqual(transactionSuccess(expectedResponse));

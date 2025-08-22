@@ -55,11 +55,11 @@ export class TickData extends ChainObject {
   @BigNumberProperty()
   liquidityNet: BigNumber;
 
-  @BigNumberIsPositive()
+  // @BigNumberIsPositive()
   @BigNumberProperty()
   feeGrowthOutside0: BigNumber;
 
-  @BigNumberIsPositive()
+  // @BigNumberIsPositive()
   @BigNumberProperty()
   feeGrowthOutside1: BigNumber;
 

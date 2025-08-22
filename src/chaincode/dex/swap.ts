@@ -173,6 +173,9 @@ export async function swap(ctx: GalaChainContext, dto: SwapDto): Promise<SwapRes
     ctx.txUnixTime
   );
 
+  console.log("Pool state after: \n")
+  console.dir(JSON.stringify(pool), { depth: null, colors: true });
+
   await putChainObject(ctx, pool);
   return response;
 }

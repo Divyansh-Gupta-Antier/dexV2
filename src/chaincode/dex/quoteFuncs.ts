@@ -114,5 +114,6 @@ export async function quoteExactAmount(
 
   // Return quote response including price movement
   const newSqrtPrice = pool.sqrtPrice;
+  console.dir(JSON.stringify(pool), { depth: null, colors: true });
   return new QuoteExactAmountResDto(roundedToken0Amount, roundedToken1Amount, currentSqrtPrice, newSqrtPrice);
 }

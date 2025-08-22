@@ -45,6 +45,7 @@ export function computeSwapStep(
   zeroForOne: boolean
 ): BigNumber[] {
   //returns
+  // const zeroForOne = sqrtPriceCurrent.isGreaterThanOrEqualTo(sqrtPriceTarget);
   let amountIn = new BigNumber(0),
     amountOut = new BigNumber(0),
     sqrtPriceNext: BigNumber,
