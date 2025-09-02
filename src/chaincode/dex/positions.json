@@ -1,0 +1,86 @@
+[
+    {
+      "id": "b8dc795cd4d8a0010b94a684987cc74cf9595872b7bb895b967db3182174f5da",
+      "key0": "GCDXCHLPDA",
+      "key1": "2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34",
+      "value": "{\"fee\":10000,\"poolHash\":\"2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34\",\"liquidity\":\"40763.470380959850867723\",\"tickLower\":-886800,\"tickUpper\":886800,\"positionId\":\"51e2ba948371bc7cb2d7a18bcfabd500ab7bb145da1731233654402c41faf584\",\"tokensOwed0\":\"147.0106865916624756205094669962833862573\",\"tokensOwed1\":\"34.63532943604411268301440991298700999549\",\"token0ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GALA\",\"additionalKey\":\"none\"},\"token1ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GTON\",\"additionalKey\":\"none\"},\"feeGrowthInside0Last\":\"0.03554240943081585356\",\"feeGrowthInside1Last\":\"0.03658965820564085969\"}"
+    },
+    {
+      "id": "1b43b2de5f4f5295e0f7948e12efacdf9a194c5e7934a16e1dc173c12f77e5f9",
+      "key0": "GCDXCHLPDA",
+      "key1": "2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34",
+      "value": "{\"fee\":10000,\"poolHash\":\"2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34\",\"liquidity\":\"16.084766007361637366\",\"tickLower\":16000,\"tickUpper\":23000,\"positionId\":\"a8841c72c4aeb8d8ee49ad1089aace1709f4fad6215f75c39fd6a8af1aa7a253\",\"tokensOwed0\":\"0\",\"tokensOwed1\":\"0\",\"token0ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GALA\",\"additionalKey\":\"none\"},\"token1ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GTON\",\"additionalKey\":\"none\"},\"feeGrowthInside0Last\":\"0\",\"feeGrowthInside1Last\":\"0\"}"
+    },
+    {
+      "id": "b60586ec8d9dcd911df9ecda39364533b8d16c356e2ba400008fa0153af4b80b",
+      "key0": "GCDXCHLPDA",
+      "key1": "2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34",
+      "value": "{\"fee\":10000,\"poolHash\":\"2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34\",\"liquidity\":\"16.084766007361637366\",\"tickLower\":16000,\"tickUpper\":23000,\"positionId\":\"46df18f57126d1ddcbb8452bed55126b2a9f14dff080b4f3a4ca7cebebcbf7d5\",\"tokensOwed0\":\"0.00000000725501508991641002832623485772\",\"tokensOwed1\":\"0.00000000024257381838607380411700679626\",\"token0ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GALA\",\"additionalKey\":\"none\"},\"token1ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GTON\",\"additionalKey\":\"none\"},\"feeGrowthInside0Last\":\"0.00009448115405095442\",\"feeGrowthInside1Last\":\"0.00010677545708702111\"}"
+    },
+    {
+      "id": "158140923c57152de22be5df19fa6fb3778c6f608b01440338982ffcd13b6f1f",
+      "key0": "GCDXCHLPDA",
+      "key1": "2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34",
+      "value": "{\"fee\":10000,\"poolHash\":\"2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34\",\"liquidity\":\"316.351396049399861429\",\"tickLower\":-886800,\"tickUpper\":886800,\"positionId\":\"352da5a5f8111a610fb8080ebcf930cc7bfc7af8d015462e674e898a6abd1aec\",\"tokensOwed0\":\"0\",\"tokensOwed1\":\"0\",\"token0ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GALA\",\"additionalKey\":\"none\"},\"token1ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GTON\",\"additionalKey\":\"none\"},\"feeGrowthInside0Last\":\"0.03436839378952592322\",\"feeGrowthInside1Last\":\"0.03613491605224926921\"}"
+    },
+    {
+      "id": "b03c1dcc7a2637613bfd0700874a2f86a9d6dda95910a45fd216acfa09290fbc",
+      "key0": "GCDXCHLPDA",
+      "key1": "2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34",
+      "value": "{\"fee\":10000,\"poolHash\":\"2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34\",\"liquidity\":\"3921.00214989620813608\",\"tickLower\":-886800,\"tickUpper\":886800,\"positionId\":\"d75c4b600665d16f10b123f78059cdcf7102a5b96ea59c5521da9597b4aaaec9\",\"tokensOwed0\":\"3.06993897730305151817309420145047657459\",\"tokensOwed1\":\"0.32751797145909980313503382844624141404\",\"token0ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GALA\",\"additionalKey\":\"none\"},\"token1ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GTON\",\"additionalKey\":\"none\"},\"feeGrowthInside0Last\":\"0.03529744793359528674\",\"feeGrowthInside1Last\":\"0.03624169150933629032\"}"
+    },
+    {
+      "id": "b4d3a0f0369026110dd6729fcbe73e41c12501f02760b6b8b777e383a9753134",
+      "key0": "GCDXCHLPDA",
+      "key1": "2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34",
+      "value": "{\"fee\":10000,\"poolHash\":\"2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34\",\"liquidity\":\"0\",\"tickLower\":-6800,\"tickUpper\":0,\"positionId\":\"3c7a3ca4e0d348e142ad78c881b5a8e68dcbb5ea018a00810611c1f0e6a02429\",\"tokensOwed0\":\"0\",\"tokensOwed1\":\"0\",\"token0ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GALA\",\"additionalKey\":\"none\"},\"token1ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GTON\",\"additionalKey\":\"none\"},\"feeGrowthInside0Last\":\"0\",\"feeGrowthInside1Last\":\"0\"}"
+    },
+    {
+      "id": "fdc94da74da55230e2c7b07c92719081de67ae68820d339f4b6a76d5a7c826f6",
+      "key0": "GCDXCHLPDA",
+      "key1": "2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34",
+      "value": "{\"fee\":10000,\"poolHash\":\"2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34\",\"liquidity\":\"0\",\"tickLower\":-886800,\"tickUpper\":886800,\"positionId\":\"d38d1019c181154226fc6d625f4109b096ec02f3c0444913454ed784ab0ef29a\",\"tokensOwed0\":\"0\",\"tokensOwed1\":\"0\",\"token0ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GALA\",\"additionalKey\":\"none\"},\"token1ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GTON\",\"additionalKey\":\"none\"},\"feeGrowthInside0Last\":\"0.03536333393192353881\",\"feeGrowthInside1Last\":\"0.03624169150933629032\"}"
+    },
+    {
+      "id": "09f41e1b48da38a8ba8118723e8832f24b708e68864439d9662e14dae159e059",
+      "key0": "GCDXCHLPDA",
+      "key1": "2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34",
+      "value": "{\"fee\":10000,\"poolHash\":\"2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34\",\"liquidity\":\"55.492135496279869649\",\"tickLower\":-886800,\"tickUpper\":46000,\"positionId\":\"ef8aa3b58b69ccbe263ca6c12e7ced83562dee67a21d686e3fbf2c0e2e167cf8\",\"tokensOwed0\":\"0.00027237490153754824895152800620002862\",\"tokensOwed1\":\"0.00000000020221404079186637006240155782\",\"token0ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GALA\",\"additionalKey\":\"none\"},\"token1ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GTON\",\"additionalKey\":\"none\"},\"feeGrowthInside0Last\":\"0.03554240943081585356\",\"feeGrowthInside1Last\":\"0.03630613350206120294\"}"
+    },
+    {
+      "id": "4258cbf76494deee62a9283d8e6312927b1b4394d0d582dd29cf223d7e0a5268",
+      "key0": "GCDXCHLPDA",
+      "key1": "2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34",
+      "value": "{\"fee\":10000,\"poolHash\":\"2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34\",\"liquidity\":\"64.573680788249631425\",\"tickLower\":0,\"tickUpper\":17800,\"positionId\":\"8f9779b741fc97d17737e0c1b0561b08e4d1ac3708be767204ea7f077832f5d4\",\"tokensOwed0\":\"0\",\"tokensOwed1\":\"0\",\"token0ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GALA\",\"additionalKey\":\"none\"},\"token1ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GTON\",\"additionalKey\":\"none\"},\"feeGrowthInside0Last\":\"0\",\"feeGrowthInside1Last\":\"0\"}"
+    },
+    {
+      "id": "3dfe46fd97d2a69659fc6c8df6d70860afd9a83c72efff33d2232a5117ec9c1e",
+      "key0": "GCDXCHLPDA",
+      "key1": "2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34",
+      "value": "{\"fee\":10000,\"poolHash\":\"2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34\",\"liquidity\":\"0.000000000000000427\",\"tickLower\":13800,\"tickUpper\":35200,\"positionId\":\"de25ba99fa6428a32262082dcd725622bf7f0fe4a44b1873b9a6aa4052d32609\",\"tokensOwed0\":\"0.00000000070238226436580146677202271237\",\"tokensOwed1\":\"0\",\"token0ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GALA\",\"additionalKey\":\"none\"},\"token1ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GTON\",\"additionalKey\":\"none\"},\"feeGrowthInside0Last\":\"0.00092077513504489031\",\"feeGrowthInside1Last\":\"0\"}"
+    },
+    {
+      "id": "6a17c2a25399dd4af4c81c809ea89ece704a6a8e60a6f5dbbac1e91d73e6f845",
+      "key0": "GCDXCHLPDA",
+      "key1": "2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34",
+      "value": "{\"fee\":10000,\"poolHash\":\"2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34\",\"liquidity\":\"0\",\"tickLower\":-886800,\"tickUpper\":24200,\"positionId\":\"f1958cf20c0792987034e33902cdf23bc8f51d6d2bfe6541e803bca5d0cbb170\",\"tokensOwed0\":\"0\",\"tokensOwed1\":\"0\",\"token0ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GALA\",\"additionalKey\":\"none\"},\"token1ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GTON\",\"additionalKey\":\"none\"},\"feeGrowthInside0Last\":\"0.03539626345785580621\",\"feeGrowthInside1Last\":\"0.03624169150933629032\"}"
+    },
+    {
+      "id": "b48a795745f9ac581b3ca0ac6f58923a3e416bb63d92a059532265a451036a9e",
+      "key0": "GCDXCHLPDA",
+      "key1": "2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34",
+      "value": "{\"fee\":10000,\"poolHash\":\"2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34\",\"liquidity\":\"6035.959522232041572164\",\"tickLower\":14600,\"tickUpper\":18800,\"positionId\":\"5b81bb12b3dab802ebc809325eca83c7fe342089b07ea990b8b7155016726b6e\",\"tokensOwed0\":\"1.1761749028320857032783759915802919654\",\"tokensOwed1\":\"0.51862567949272570704371850444349630968\",\"token0ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GALA\",\"additionalKey\":\"none\"},\"token1ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GTON\",\"additionalKey\":\"none\"},\"feeGrowthInside0Last\":\"0.00014614597296004735\",\"feeGrowthInside1Last\":\"0.00006444199272491262\"}"
+    },
+    {
+      "id": "5715b5e68ce20263d4b458d1980b3e5775bb8773bb3fec5bca79572a74f7c2ad",
+      "key0": "GCDXCHLPDA",
+      "key1": "2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34",
+      "value": "{\"fee\":10000,\"poolHash\":\"2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34\",\"liquidity\":\"8491.444915875671207425\",\"tickLower\":-886800,\"tickUpper\":886800,\"positionId\":\"395d29d7e2fe5ed9671b4e7fea18602573d4e3c3736c8fe1257b1fcb63035f37\",\"tokensOwed0\":\"0.0000000053415481309543418123091201632\",\"tokensOwed1\":\"0.00000000079194722744017376262529601209\",\"token0ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GALA\",\"additionalKey\":\"none\"},\"token1ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GTON\",\"additionalKey\":\"none\"},\"feeGrowthInside0Last\":\"0.03554240943081585356\",\"feeGrowthInside1Last\":\"0.03658965820564085969\"}"
+    },
+    {
+      "id": "7571f8908877e064b8ba59841ac33a1c00b11eaff40223cce0931de60b259cb2",
+      "key0": "GCDXCHLPDA",
+      "key1": "2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34",
+      "value": "{\"fee\":10000,\"poolHash\":\"2954bd1e38c2dff11a2ee8798e2f59b99c206e64bef7bdf5c4ac9a91315e0d34\",\"liquidity\":\"0\",\"tickLower\":14600,\"tickUpper\":18600,\"positionId\":\"c42c51847312355bc2842a89d787fb691ca798aa08124f5b74593c0b582ab469\",\"tokensOwed0\":\"0\",\"tokensOwed1\":\"0.29041755552294357543054591937231981952\",\"token0ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GALA\",\"additionalKey\":\"none\"},\"token1ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GTON\",\"additionalKey\":\"none\"},\"feeGrowthInside0Last\":\"0.00014614597296004735\",\"feeGrowthInside1Last\":\"0.00034796669630456937\"}"
+    }
+  ]

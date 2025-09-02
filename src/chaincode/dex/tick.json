@@ -1,0 +1,35 @@
+[
+    {
+      "value": "{\"tick\":-15360,\"poolHash\":\"7c3aed26f046159e13d1a1daf084892e3fbc7b642a9fe2fee0720e8564c72004\",\"initialised\":false,\"liquidityNet\":\"0\",\"liquidityGross\":\"0\",\"feeGrowthOutside0\":\"0.02167965854690440998\",\"feeGrowthOutside1\":\"0.00110395383542496252\"}"
+    },
+    {
+      "value": "{\"tick\":0,\"poolHash\":\"7c3aed26f046159e13d1a1daf084892e3fbc7b642a9fe2fee0720e8564c72004\",\"initialised\":false,\"liquidityNet\":\"0\",\"liquidityGross\":\"0\",\"feeGrowthOutside0\":\"0\",\"feeGrowthOutside1\":\"0\"}"
+    },
+    {
+      "value": "{\"tick\":-886800,\"poolHash\":\"7c3aed26f046159e13d1a1daf084892e3fbc7b642a9fe2fee0720e8564c72004\",\"initialised\":true,\"liquidityNet\":\"0.166065132736323844\",\"liquidityGross\":\"0.166065132736323844\",\"feeGrowthOutside0\":\"0.02430350695013886037\",\"feeGrowthOutside1\":\"0\"}"
+    },
+    {
+      "value": "{\"tick\":886800,\"poolHash\":\"7c3aed26f046159e13d1a1daf084892e3fbc7b642a9fe2fee0720e8564c72004\",\"initialised\":true,\"liquidityNet\":\"-0.166065132736323844\",\"liquidityGross\":\"0.166065132736323844\",\"feeGrowthOutside0\":\"0\",\"feeGrowthOutside1\":\"0\"}"
+    },
+    {
+      "value": "{\"tick\":-61440,\"poolHash\":\"7c3aed26f046159e13d1a1daf084892e3fbc7b642a9fe2fee0720e8564c72004\",\"initialised\":false,\"liquidityNet\":\"0\",\"liquidityGross\":\"0\",\"feeGrowthOutside0\":\"0.07741750151724376887\",\"feeGrowthOutside1\":\"0.00110395383542496252\"}"
+    },
+    {
+      "value": "{\"tick\":-46080,\"poolHash\":\"7c3aed26f046159e13d1a1daf084892e3fbc7b642a9fe2fee0720e8564c72004\",\"initialised\":false,\"liquidityNet\":\"0\",\"liquidityGross\":\"0\",\"feeGrowthOutside0\":\"0\",\"feeGrowthOutside1\":\"0\"}"
+    },
+    {
+      "value": "{\"tick\":-64440,\"poolHash\":\"7c3aed26f046159e13d1a1daf084892e3fbc7b642a9fe2fee0720e8564c72004\",\"initialised\":true,\"liquidityNet\":\"52.791554240781653806\",\"liquidityGross\":\"52.791554240781653806\",\"feeGrowthOutside0\":\"0.11020942743552436453\",\"feeGrowthOutside1\":\"0.0011444538394557667\"}"
+    },
+    {
+      "value": "{\"tick\":-60420,\"poolHash\":\"7c3aed26f046159e13d1a1daf084892e3fbc7b642a9fe2fee0720e8564c72004\",\"initialised\":true,\"liquidityNet\":\"-52.791554240781653806\",\"liquidityGross\":\"52.791554240781653806\",\"feeGrowthOutside0\":\"0.11020942743552436453\",\"feeGrowthOutside1\":\"0.00115561886954201792\"}"
+    },
+    {
+      "value": "{\"tick\":-45060,\"poolHash\":\"7c3aed26f046159e13d1a1daf084892e3fbc7b642a9fe2fee0720e8564c72004\",\"initialised\":false,\"liquidityNet\":\"0\",\"liquidityGross\":\"0\",\"feeGrowthOutside0\":\"0.11020942743552436453\",\"feeGrowthOutside1\":\"0.00130818249841364304\"}"
+    },
+    {
+      "value": "{\"tick\":-37320,\"poolHash\":\"7c3aed26f046159e13d1a1daf084892e3fbc7b642a9fe2fee0720e8564c72004\",\"initialised\":true,\"liquidityNet\":\"-1632.452559049978288109\",\"liquidityGross\":\"1632.452559049978288109\",\"feeGrowthOutside0\":\"0\",\"feeGrowthOutside1\":\"0\"}"
+    },
+    {
+      "value": "{\"tick\":-41400,\"poolHash\":\"7c3aed26f046159e13d1a1daf084892e3fbc7b642a9fe2fee0720e8564c72004\",\"initialised\":true,\"liquidityNet\":\"1632.452559049978288109\",\"liquidityGross\":\"1632.452559049978288109\",\"feeGrowthOutside0\":\"0.11020942743552436453\",\"feeGrowthOutside1\":\"0.00140637924328041023\"}"
+    }
+  ]

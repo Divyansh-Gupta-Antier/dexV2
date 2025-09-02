@@ -16,6 +16,7 @@ import { TokenBalance, TokenClass, TokenClassKey, TokenInstance } from "@gala-ch
 import { currency, fixture, users } from "@gala-chain/test";
 import BigNumber from "bignumber.js";
 import { plainToInstance } from "class-transformer";
+import { keccak256 } from "js-sha3";
 
 import {
   DexFeePercentageTypes,
@@ -29,6 +30,8 @@ import {
 import { DexV3Contract } from "../DexV3Contract";
 import dex from "../test/dex";
 import { generateKeyFromClassKey } from "./dexUtils";
+import positionsJson from "./positions.json";
+import tickJson from "./tick.json";
 
 const positions = [
   {
@@ -504,53 +507,83 @@ it("should work with corrupted pools", async () => {
   ];
   const [tick1, tick2, tick3, tick4, tick5, tick6, tick7]: TickData[] = plainToInstance(TickData, tickData);
 
-  const positionData1 = new DexPositionData(
-    pool.genPoolHash(),
-    "test position id",
-    886800,
-    -886800,
-    dexClassKey,
-    currencyClassKey,
-    fee
-  );
-  positionData1.liquidity = new BigNumber("50151.341106279939499596");
-  positionData1.tokensOwed0 = new BigNumber("25.71222121993776949208261766265153599228");
-  positionData1.tokensOwed1 = new BigNumber("0.31700952853971159669819979827281850231");
-  positionData1.feeGrowthInside0Last = new BigNumber("0.00051269388780629604");
-  positionData1.feeGrowthInside1Last = new BigNumber("0.00000632107379088033");
-
-  const positionData2 = new DexPositionData(
-    pool.genPoolHash(),
-    "test position id2",
-    10980,
-    -41360,
-    dexClassKey,
-    currencyClassKey,
-    fee
-  );
-  positionData2.liquidity = new BigNumber("414342.308664710770120158");
-  positionData2.tokensOwed0 = new BigNumber("0.00000000764648208797468825190595965348");
-  positionData2.tokensOwed1 = new BigNumber("8.50581171547982358743512779314274500474");
-  positionData2.feeGrowthInside0Last = new BigNumber("0.00212675199239027232");
-  positionData2.feeGrowthInside1Last = new BigNumber("0.00005576246211396766");
-
-  const positionData3 = new DexPositionData(
-    pool.genPoolHash(),
-    "test position id3",
-    -42810,
-    0,
-    dexClassKey,
-    currencyClassKey,
-    fee
-  );
-  positionData3.liquidity = new BigNumber("0");
-  positionData3.tokensOwed0 = new BigNumber("505.64299147643391887113780049622797061232");
-  positionData3.tokensOwed1 = new BigNumber("0.00278064128193458607442657397498302632");
-  positionData3.feeGrowthInside0Last = new BigNumber("0.00053306755570900906");
-  positionData3.feeGrowthInside1Last = new BigNumber("0.00000000293145495231");
+  const positionDatas = [
+    {
+      fee: fee,
+      poolHash: pool.genPoolHash(),
+      liquidity: "12348.005063999384809072",
+      tickLower: 0,
+      tickUpper: 6800,
+      positionId: "16bae317ce601c3c2b2049771a7fe5015f017d7b1f163bbdbf0538adfc4bf04d",
+      tokensOwed0: "0",
+      tokensOwed1: "0",
+      token0ClassKey: dexClassKey,
+      token1ClassKey: currencyClassKey,
+      feeGrowthInside0Last: "0",
+      feeGrowthInside1Last: "0"
+    },
+    {
+      fee: fee,
+      poolHash: pool.genPoolHash(),
+      liquidity: "0.080923876874741964",
+      tickLower: -886800,
+      tickUpper: 886800,
+      positionId: "7b306e4c927984d1067a6933270490e1db7e33f83766ddfb30ea260167576990",
+      tokensOwed0: "0",
+      tokensOwed1: "0",
+      token0ClassKey: dexClassKey,
+      token1ClassKey: currencyClassKey,
+      feeGrowthInside0Last: "0.00000007216407688543",
+      feeGrowthInside1Last: "0"
+    },
+    {
+      fee: fee,
+      poolHash: pool.genPoolHash(),
+      liquidity: "0",
+      tickLower: -886800,
+      tickUpper: 886800,
+      positionId: "3c725288110efce6e291d22e48c56ce63a8ced04ac4fe5f93c22b9b4a95289f3",
+      tokensOwed0: "0.00000000660109807223445382986893391101",
+      tokensOwed1: "0",
+      token0ClassKey: dexClassKey,
+      token1ClassKey: currencyClassKey,
+      feeGrowthInside0Last: "0.00148808721750722201",
+      feeGrowthInside1Last: "0"
+    },
+    {
+      fee: fee,
+      poolHash: pool.genPoolHash(),
+      liquidity: "0",
+      tickLower: -2000,
+      tickUpper: 2000,
+      positionId: "4a3045f0562b939d74ef993727f09bbccbf586a804554c1f69cff3cb7d15f7df",
+      tokensOwed0: "0",
+      tokensOwed1: "0",
+      token0ClassKey: dexClassKey,
+      token1ClassKey: currencyClassKey,
+      feeGrowthInside0Last: "89504.14001559950617587128",
+      feeGrowthInside1Last: "0.00929493255946010634"
+    },
+    {
+      fee: fee,
+      poolHash: pool.genPoolHash(),
+      liquidity: "4615.345708862492461491",
+      tickLower: -2000,
+      tickUpper: 2200,
+      positionId: "485963288eb639fbf3d62288c25d701037f9673086c5a3a2a207048d6a89e341",
+      tokensOwed0: "612436472.88137583618502031393028020457175618496",
+      tokensOwed1: "63.73070083196694544488103000933567983008",
+      token0ClassKey: dexClassKey,
+      token1ClassKey: currencyClassKey,
+      feeGrowthInside0Last: "89504.14001559950617587128",
+      feeGrowthInside1Last: "0.00931388286481348244"
+    }
+  ];
+  const [positionData1, positionData2, positionData3, positionData4, positionData5]: DexPositionData[] =
+    plainToInstance(DexPositionData, positionDatas);
 
   // Setup the fixture
-  const { ctx, contract, getWrites } = fixture(DexV3Contract)
+  const { ctx, contract } = fixture(DexV3Contract)
     .caClientIdentity(users.admin.identityKey, "CuratorOrg")
     .registeredUsers(users.testUser1)
     .savedState(
@@ -565,6 +598,8 @@ it("should work with corrupted pools", async () => {
       positionData1,
       positionData2,
       positionData3,
+      positionData4,
+      positionData5,
       tick1,
       tick2,
       tick3,
@@ -591,3 +626,106 @@ it("should work with corrupted pools", async () => {
   });
   expect(response.Data?.expectedLiquidity.toString()).toBe("464493.649770990709619754");
 });
+
+it.only("should test on JSON objects", async () => {
+  const currencyClass: TokenClass = currency.tokenClass();
+  const currencyInstance: TokenInstance = currency.tokenInstance();
+  const currencyClassKey: TokenClassKey = currency.tokenClassKey();
+  const dexClass: TokenClass = dex.tokenClass();
+  const dexInstance: TokenInstance = dex.tokenInstance();
+  const dexClassKey: TokenClassKey = dex.tokenClassKey();
+
+  const token0Key = generateKeyFromClassKey(dex.tokenClassKey());
+  const token1Key = generateKeyFromClassKey(currency.tokenClassKey());
+
+  const poolData = JSON.parse(
+    `{\"fee\":10000,\"bitmap\":{\"0\":\"1725436586697641042639660269687310052047861735464040166302538413375489\",\"17\":\"4835703278458516698824704\",\"-17\":\"23945242826029513411849172299223580994042798784118784\"},\"token0\":\"GALA$Unit$none$none\",\"token1\":\"GTON$Unit$none$none\",\"liquidity\":\"59680.463713312424422035\",\"sqrtPrice\":\"2.29002970631192305347\",\"tickSpacing\":200,\"protocolFees\":0.1,\"token0ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GALA\",\"additionalKey\":\"none\"},\"token1ClassKey\":{\"type\":\"none\",\"category\":\"Unit\",\"collection\":\"GTON\",\"additionalKey\":\"none\"},\"feeGrowthGlobal0\":\"0.03554240943081585356\",\"feeGrowthGlobal1\":\"0.03658965820564085969\",\"grossPoolLiquidity\":\"94952376711.783050640251682\",\"protocolFeesToken0\":\"19.928783322829226637668\",\"protocolFeesToken1\":\"24.625101570480999876267576615544837100187\",\"maxLiquidityPerTick\":\"38347248999678653400142060922857318.01636519561716576269\"}`
+  );
+  const [pool] = plainToInstance(Pool, [
+    {
+      ...poolData,
+      token0: token0Key,
+      token1: token1Key,
+      token0ClassKey: dex.tokenClassKey(),
+      token1ClassKey: currency.tokenClassKey()
+    }
+  ]);
+  const hashingString = [poolData.token0, poolData.token1, poolData.fee].join();
+  const hash = keccak256(hashingString);
+
+  console.log("POOLhash:", hash);
+  const poolAlias = pool.getPoolAlias();
+  const poolDexBalance = plainToInstance(TokenBalance, {
+    ...dex.tokenBalance(),
+    owner: poolAlias,
+    quantity: new BigNumber("100000")
+  });
+  const poolCurrencyBalance = plainToInstance(TokenBalance, {
+    ...currency.tokenBalance(),
+    owner: poolAlias,
+    quantity: new BigNumber("100000")
+  });
+
+  // Create user balances - user needs tokens to swap
+  const userDexBalance = plainToInstance(TokenBalance, {
+    ...dex.tokenBalance(),
+    owner: users.testUser1.identityKey,
+    quantity: new BigNumber("1000000") // User has 10k DEX tokens
+  });
+  const userCurrencyBalance = plainToInstance(TokenBalance, {
+    ...currency.tokenBalance(),
+    owner: users.testUser1.identityKey,
+    quantity: new BigNumber("1000000") // User has 10k CURRENCY tokens
+  });
+
+  const rawPositions = positionsJson.map((item) => {
+    const value = JSON.parse(item.value);
+    value.poolHash = pool.genPoolHash();
+    value.fee = pool.fee;
+    return value;
+  });
+
+  const rawTicks = tickJson.map((item) => {
+    const value = JSON.parse(item.value);
+    value.poolHash = pool.genPoolHash();
+    value.fee = pool.fee;
+    return value;
+  });
+
+  const positions = plainToInstance(DexPositionData, rawPositions);
+  const ticks = plainToInstance(TickData, rawTicks);
+
+  const { ctx, contract } = fixture(DexV3Contract)
+    .caClientIdentity(users.admin.identityKey, "CuratorOrg")
+    .registeredUsers(users.testUser1)
+    .savedState(
+      currencyClass,
+      currencyInstance,
+      dexClass,
+      dexInstance,
+      pool,
+      poolDexBalance,
+      poolCurrencyBalance,
+      userDexBalance,
+      ...positions,
+      ...ticks,
+      userCurrencyBalance
+    );
+
+  let updatePoolBitmapDto = new UpdatePoolBitmapDto(dexClassKey, currencyClassKey, pool.fee);
+  updatePoolBitmapDto.uniqueKey = "anyuniquiekey";
+  updatePoolBitmapDto = updatePoolBitmapDto.signed(users.admin.privateKey);
+
+  // When
+  const response = await contract.GetBitMapChanges(ctx, updatePoolBitmapDto);
+
+  console.dir(response.Data?.bitMap, { depth: null, colors: true });
+  console.log("expected:", response.Data?.expectedLiquidity.toString());
+  console.log("actual:", response.Data?.liquidity.toString());
+});
+
+// GALA/GTRUMP 3000
+
+
+
+
