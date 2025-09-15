@@ -99,13 +99,13 @@ export async function burn(ctx: GalaChainContext, dto: BurnDto): Promise<DexOper
       let maximumBurnableLiquidity: BigNumber;
       if (index === 0) {
         maximumBurnableLiquidity = liquidity0(
-          roundedAmount,
+          poolToken0Balance.getQuantityTotal(),
           sqrtPrice.gt(sqrtPriceA) ? sqrtPrice : sqrtPriceA,
           sqrtPriceB
         );
       } else {
         maximumBurnableLiquidity = liquidity1(
-          roundedAmount,
+          poolToken1Balance.getQuantityTotal(),
           sqrtPriceA,
           sqrtPrice.lt(sqrtPriceB) ? sqrtPrice : sqrtPriceB
         );
@@ -139,6 +139,8 @@ export async function burn(ctx: GalaChainContext, dto: BurnDto): Promise<DexOper
     roundTokenAmount(amounts[1], tokenDecimals[1], false),
     poolToken1Balance.getQuantityTotal()
   );
+
+  console.log("expected", roundTokenAmount(amounts[1], tokenDecimals[1], false).toString())
   if (roundedToken0Amount.lt(dto.amount0Min) || roundedToken1Amount.lt(dto.amount1Min)) {
     throw new SlippageToleranceExceededError(
       `Slippage tolerance exceeded: expected minimums (amount0 ≥ ${dto.amount0Min.toString()}, amount1 ≥ ${dto.amount1Min.toString()}), but received (amount0 = ${roundedToken0Amount.toString()}, amount1 = ${roundedToken1Amount.toString()})`

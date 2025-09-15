@@ -14,8 +14,10 @@
  */
 import { TokenBalance, TokenClass, TokenClassKey, TokenInstance } from "@gala-chain/api";
 import { currency, fixture, users } from "@gala-chain/test";
+import axios from "axios";
 import BigNumber from "bignumber.js";
 import { plainToInstance } from "class-transformer";
+import { writeFile } from "fs/promises";
 import { keccak256 } from "js-sha3";
 
 import {
@@ -30,7 +32,9 @@ import {
 import { DexV3Contract } from "../DexV3Contract";
 import dex from "../test/dex";
 import { generateKeyFromClassKey } from "./dexUtils";
+import pools from "./poolList.json";
 import positionsJson from "./positions.json";
+import rawData from "./rawData.json";
 import tickJson from "./tick.json";
 
 const positions = [
@@ -627,7 +631,7 @@ it("should work with corrupted pools", async () => {
   expect(response.Data?.expectedLiquidity.toString()).toBe("464493.649770990709619754");
 });
 
-it.only("should test on JSON objects", async () => {
+it("should test on JSON objects", async () => {
   const currencyClass: TokenClass = currency.tokenClass();
   const currencyInstance: TokenInstance = currency.tokenInstance();
   const currencyClassKey: TokenClassKey = currency.tokenClassKey();
@@ -724,8 +728,153 @@ it.only("should test on JSON objects", async () => {
   console.log("actual:", response.Data?.liquidity.toString());
 });
 
-// GALA/GTRUMP 3000
+it("convert to valid data", async () => {
+  class outPutdata {
+    block_number: any;
+    created_at: any;
+    method: any;
+    input: any;
+    output: any;
+    write_value: any;
+    sqrtPrice: any;
+    operation_number: any;
+  }
+  let res: outPutdata[] = [];
+  for (const transaction of rawData) {
+    // console.log(JSON.parse(transaction.input).operations);
+    // JSON.parse(transaction.input).operations.length > 1
+    //   ? console.dir(
+    //       { block: transaction.block_number, input: JSON.parse(transaction.input).operations },
+    //       { depth: null, colors: true }
+    //     )
+    //   : null;
+    const operations = JSON.parse(transaction.input).operations;
+    for (const operation in operations) {
+      const entry = {
+        block_number: transaction.block_number,
+        created_at: transaction.created_at,
+        method: operations[operation].method,
+        input: JSON.stringify(operations[operation].dto),
+        write_value: transaction.write_value,
+        sqrtPrice: `${JSON.parse(transaction.write_value).sqrtPrice}`,
+        output: JSON.parse(transaction.action_chaincode_response_payload).Data[operation],
+        operation_number: operation
+      };
+      res.push(entry);
+    }
+  }
+  console.dir(res, { depth: null, colors: true });
+  await writeFile("./output.json", JSON.stringify(res), "utf-8");
+});
 
+it("create list of input dtos", async () => {
+  let inputArray: UpdatePoolBitmapDto[] = [];
+  for (const pool of pools) {
+    const elements = pool.poolPair.split("/");
+    const token0 = new TokenClassKey();
+    token0.collection = elements[0].split("|")[0];
+    token0.category = elements[0].split("|")[1];
+    token0.type = elements[0].split("|")[2];
+    token0.additionalKey = elements[0].split("|")[3];
 
+    const token1 = new TokenClassKey();
+    token1.collection = elements[1].split("|")[0];
+    token1.category = elements[1].split("|")[1];
+    token1.type = elements[1].split("|")[2];
+    token1.additionalKey = elements[1].split("|")[3];
 
+    const fee = parseInt(elements[2]);
 
+    const input = new UpdatePoolBitmapDto(token0, token1, fee);
+    inputArray.push(input);
+  }
+  console.dir(inputArray, { depth: null, colors: true });
+  await writeFile("./bitmapOld.json", JSON.stringify(inputArray), "utf-8");
+});
+
+test.only("testing the funciton in chain code deployed", async () => {
+  class s {
+    pool: string;
+    bitmap: string;
+  }
+  const output: s[] = [];
+  for (const pool of pools) {
+    // console.log(pool.poolPair)
+    const elements = pool.poolPair.split("/");
+    const token0 = new TokenClassKey();
+    token0.collection = elements[0].split("|")[0];
+    token0.category = elements[0].split("|")[1];
+    token0.type = elements[0].split("|")[2];
+    token0.additionalKey = elements[0].split("|")[3];
+
+    const token1 = new TokenClassKey();
+    token1.collection = elements[1].split("|")[0];
+    token1.category = elements[1].split("|")[1];
+    token1.type = elements[1].split("|")[2];
+    token1.additionalKey = elements[1].split("|")[3];
+
+    const fee = parseInt(elements[2]);
+
+    // console.log(   JSON.stringify ({
+    //   token0: {
+    //     collection: token0Collection,
+    //     category: token0Category,
+    //     type: token0Type,
+    //     additionalKey: token0AdditionalKey
+    //   },
+    //   token1: {
+    //     collection: token1Collection,
+    //     category: token1Category,
+    //     type: token1Type,
+    //     additionalKey: token1AdditionalKey
+    //   },
+    //   fee: Number(fee)
+    // }))
+    try {
+      // const response = await axios.post(
+      //   `https://gateway-mainnet.galachain.com/api/asset/dexv3-contract/GetBitMapChanges`,
+      //   {
+      //     token0: {
+      //       collection: token0Collection,
+      //       category: token0Category,
+      //       type: token0Type,
+      //       additionalKey: token0AdditionalKey
+      //     },
+      //     token1: {
+      //       collection: token1Collection,
+      //       category: token1Category,
+      //       type: token1Type,
+      //       additionalKey: token1AdditionalKey
+      //     },
+      //     fee: Number(fee)
+      //   },
+      //   { headers: { contentType: "application/json" } }
+      // );
+      const url = `https://dex-backend-prod1.defi.gala.com/v1/trade/pool?token0=${token0.toStringKey()}&token1=${token1.toStringKey()}&fee=${fee}`;
+      const response = await axios.get(url);
+
+      if (response.status === 200) {
+        const data = response.data.data.Data;
+        const bitmap = data.bitmap;
+        console.dir(bitmap, { depth: null, colors: true });
+        output.push({
+          pool: pool.poolPair,
+          bitmap
+        });
+        // const expectedLiquidity = plainToInstance(BigNumber, { ...data.expectedLiquidity });
+        // const liquidity = plainToInstance(BigNumber, { ...data.liquidity });
+
+        // writeFileSync(
+        //   "./prod.txt",
+        //   ${pool.poolPair}\n\n ${JSON.stringify(["expectedLiquidity", expectedLiquidity, "liquidity", liquidity])} ${expectedLiquidity.eq(liquidity) ? "" : "faulted"}\n\n,
+        //   { flag: "a" }
+        // );
+      }
+    } catch (e) {
+      console.log(JSON.stringify(e));
+      console.log(e.message, "error in fetching pool data");
+    }
+  }
+  console.dir(output, { depth: null, colors: true });
+  await writeFile("./bitmap.json", JSON.stringify(output), "utf-8");
+});

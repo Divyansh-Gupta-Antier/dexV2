@@ -1,0 +1,392 @@
+[
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GUSDC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GUSDT", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GWETH", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GUSDC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GWETH", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GWBTC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GWETH", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GUSDC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GWBTC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 3000
+  },
+  {
+    "token0": { "collection": "GUSDT", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GWBTC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 3000
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GWBTC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GSOL", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GWBTC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GUSDT", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GSOL", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": {
+      "collection": "Token",
+      "category": "Unit",
+      "type": "WEN",
+      "additionalKey": "client:604161f025e6931a676ccf37"
+    },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "$GMUSIC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "FILM", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GUSDC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GWXRP", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 3000
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GUSDC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 500
+  },
+  {
+    "token0": { "collection": "GFARTCOIN", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": {
+      "collection": "Token",
+      "category": "Unit",
+      "type": "WEN",
+      "additionalKey": "client:604161f025e6931a676ccf37"
+    },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GOSMI", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GUSDC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GWXRP", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GSOL", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GWETH", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 500
+  },
+  {
+    "token0": { "collection": "$GMUSIC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "FILM", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GSHRAP", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "$GMUSIC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "ETIME", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "Materium", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "TestToken1", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "TestToken3", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GUSDC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GUSDT", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "ETIME", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GUSDC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GWETH", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 500
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GTRUMP", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GSWAP", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "ETIME", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "Materium", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "$GMUSIC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "Materium", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "TestToken3", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 3000
+  },
+  {
+    "token0": { "collection": "FILM", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 3000
+  },
+  {
+    "token0": { "collection": "ETIME", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "SILK", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 500
+  },
+  {
+    "token0": { "collection": "Materium", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "SILK", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "SILK", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "FILM", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "SILK", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GFARTCOIN", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GUSDC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "$GMUSIC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "SILK", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "TestToken1", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "TestToken3", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 3000
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": {
+      "collection": "Token",
+      "category": "Unit",
+      "type": "ROCK",
+      "additionalKey": "eth:3Fd2EcAAA43f8661d6f8ABb583bA2b5D7AedDD69"
+    },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "ETIME", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "FILM", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "TestToken1", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "TestToken3", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 500
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GUSDC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 3000
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "SILK", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 3000
+  },
+  {
+    "token0": { "collection": "GUSDC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": {
+      "collection": "Token",
+      "category": "Unit",
+      "type": "WEN",
+      "additionalKey": "client:604161f025e6931a676ccf37"
+    },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GSWAP", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GUSDC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "ETIME", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": {
+      "collection": "Token",
+      "category": "Unit",
+      "type": "HRBR",
+      "additionalKey": "client:6501eebddfc1673847353ca3"
+    },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "FILM", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "Materium", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "ETIME", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 3000
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": {
+      "collection": "Token",
+      "category": "Unit",
+      "type": "HRBR",
+      "additionalKey": "client:6501eebddfc1673847353ca3"
+    },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "TestToken3", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "ETIME", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GSWAP", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GWETH", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "TestToken1", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 3000
+  },
+  {
+    "token0": { "collection": "GSWAP", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "Materium", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GSWAP", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GUSDC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 3000
+  },
+  {
+    "token0": { "collection": "GSWAP", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GUSDC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 500
+  },
+  {
+    "token0": { "collection": "FILM", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GSWAP", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GUSDC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "SILK", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GUSDT", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GWBTC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GUSDC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GWBTC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GTON", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GSWAP", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 500
+  },
+  {
+    "token0": { "collection": "GSWAP", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "SILK", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "$GMUSIC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GSWAP", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 10000
+  },
+  {
+    "token0": { "collection": "GALA", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "SILK", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 500
+  },
+  {
+    "token0": { "collection": "GUSDT", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GWETH", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 3000
+  },
+  {
+    "token0": { "collection": "GUSDC", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "GUSDT", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 500
+  },
+  {
+    "token0": { "collection": "ETIME", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": { "collection": "SILK", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "fee": 3000
+  },
+  {
+    "token0": { "collection": "ETIME", "category": "Unit", "type": "none", "additionalKey": "none" },
+    "token1": {
+      "collection": "Token",
+      "category": "Unit",
+      "type": "WEN",
+      "additionalKey": "client:604161f025e6931a676ccf37"
+    },
+    "fee": 10000
+  }
+]
