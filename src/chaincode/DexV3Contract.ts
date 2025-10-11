@@ -62,8 +62,10 @@ import {
   FillLimitOrderDto,
   GetAddLiquidityEstimationDto,
   GetAddLiquidityEstimationResDto,
+  GetBitMapResDto,
   GetCompositePoolDto,
   GetLiquidityResDto,
+  GetPoolBalanceDeltaResDto,
   GetPoolDto,
   GetPositionByIdDto,
   GetPositionDto,
@@ -84,7 +86,10 @@ import {
   SwapDto,
   SwapResDto,
   TickData,
-  TransferDexPositionDto
+  TransferDexPositionDto,
+  TransferUnclaimedFundsDto,
+  TransferUnclaimedFundsResDto,
+  UpdatePoolBitmapDto
 } from "../api/";
 import {
   addLiquidity,
@@ -121,6 +126,8 @@ import {
   transferDexPosition
 } from "./dex";
 import { getTickData } from "./dex/tickData.helper";
+import { getBalanceDelta, transferUnclaimedFunds } from "./dex/transferUnclaimedFunds";
+import { getBitMapChanges, makeBitMapChanges } from "./dex/updateBitmap";
 import {
   addLiquidityFeeGate,
   collectPositionFeesFeeGate,
@@ -388,6 +395,44 @@ export class DexV3Contract extends GalaContract {
   })
   public async CollectPositionFees(ctx: GalaChainContext, dto: CollectDto): Promise<DexOperationResDto> {
     return await collect(ctx, dto);
+  }
+
+  @GalaTransaction({
+    type: EVALUATE,
+    in: GetPoolDto,
+    out: GetBitMapResDto
+  })
+  public async GetBitMapChanges(ctx: GalaChainContext, dto: GetPoolDto): Promise<GetBitMapResDto> {
+    return getBitMapChanges(ctx, dto);
+  }
+
+  @Submit({
+    in: UpdatePoolBitmapDto,
+    out: Pool
+  })
+  public async MakeBitMapChanges(ctx: GalaChainContext, dto: UpdatePoolBitmapDto): Promise<Pool> {
+    return makeBitMapChanges(ctx, dto);
+  }
+
+  @Submit({
+    in: TransferUnclaimedFundsDto,
+    out: TransferUnclaimedFundsResDto,
+    allowedOrgs: ["CuratorOrg"]
+  })
+  public async TransferUnclaimedFunds(
+    ctx: GalaChainContext,
+    dto: TransferUnclaimedFundsDto
+  ): Promise<TransferUnclaimedFundsResDto> {
+    return transferUnclaimedFunds(ctx, dto);
+  }
+
+  @GalaTransaction({
+    type: EVALUATE,
+    in: GetPoolDto,
+    out: GetPoolBalanceDeltaResDto
+  })
+  public async GetBalanceDelta(ctx: GalaChainContext, dto: GetPoolDto): Promise<GetPoolBalanceDeltaResDto> {
+    return await getBalanceDelta(ctx, dto);
   }
 
   @Submit({

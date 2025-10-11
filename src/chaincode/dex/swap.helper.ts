@@ -125,6 +125,9 @@ export async function processSwapSteps(
       state.protocolFee = state.protocolFee.plus(delta);
     }
 
+    // const feeGrowthGlobal0BeforeStep = zeroForOne ? state.feeGrowthGlobalX : pool.feeGrowthGlobal0;
+    // const feeGrowthGlobal1BeforeStep = zeroForOne ? pool.feeGrowthGlobal1 : state.feeGrowthGlobalX;
+
     // Update the global fee growth accumulator
     if (state.liquidity.isGreaterThan(0)) {
       state.feeGrowthGlobalX = state.feeGrowthGlobalX.plus(step.feeAmount.dividedBy(state.liquidity));

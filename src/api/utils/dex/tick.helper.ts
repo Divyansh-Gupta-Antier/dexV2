@@ -124,6 +124,7 @@ export function nextInitialisedTickWithInSameWord(
   let compressed = Math.trunc(tick / tickSpacing);
   if (tick < 0 && tick % tickSpacing != 0) compressed--;
   if (tick == sqrtPriceToTick(sqrtPrice)) {
+    console.log("problematic tick:", tick);
     const tickPrice = tickToSqrtPrice(tick);
     if (lte && tickPrice.lt(sqrtPrice)) {
       return [tick, isTickInitialized(tick, tickSpacing, bitmap)];

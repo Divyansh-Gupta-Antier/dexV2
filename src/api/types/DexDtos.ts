@@ -244,6 +244,94 @@ export class SwapDto extends SubmitCallDTO {
     }
   }
 }
+export class UpdatePoolBitmapDto extends SubmitCallDTO {
+  @IsNotEmpty()
+  @ValidateNested()
+  @Type(() => TokenClassKey)
+  public token0: TokenClassKey;
+
+  @IsNotEmpty()
+  @ValidateNested()
+  @Type(() => TokenClassKey)
+  public token1: TokenClassKey;
+
+  @EnumProperty(DexFeePercentageTypes)
+  public fee: DexFeePercentageTypes;
+
+  constructor(token0: TokenClassKey, token1: TokenClassKey, fee: number) {
+    super();
+    this.token0 = token0;
+    this.token1 = token1;
+    this.fee = fee;
+  }
+}
+
+export class GetBitMapResDto {
+  bitMap: { [key: string]: any };
+  expectedLiquidity: string;
+  liquidity: string;
+}
+
+export class TransferUnclaimedFundsDto extends SubmitCallDTO {
+  @IsNotEmpty()
+  @ValidateNested()
+  @Type(() => TokenClassKey)
+  public token0: TokenClassKey;
+
+  @IsNotEmpty()
+  @ValidateNested()
+  @Type(() => TokenClassKey)
+  public token1: TokenClassKey;
+
+  @EnumProperty(DexFeePercentageTypes)
+  public fee: DexFeePercentageTypes;
+
+  @IsUserRef()
+  @IsNotEmpty()
+  public secureWallet: UserRef;
+
+  constructor(
+    token0: TokenClassKey,
+    token1: TokenClassKey,
+    fee: DexFeePercentageTypes,
+    secureWallet: UserRef
+  ) {
+    super();
+    this.token0 = token0;
+    this.token1 = token1;
+    this.fee = fee;
+    this.secureWallet = secureWallet;
+  }
+}
+
+export class TransferUnclaimedFundsResDto extends ChainCallDTO {
+  @IsNotEmpty()
+  @ValidateNested({ each: true })
+  @Type(() => TokenBalance)
+  newToken0Balances: TokenBalance[];
+
+  @IsNotEmpty()
+  @ValidateNested({ each: true })
+  @Type(() => TokenBalance)
+  newToken1Balances: TokenBalance[];
+
+  constructor(newToken0Balances: TokenBalance[], newToken1Balances: TokenBalance[]) {
+    super();
+    this.newToken0Balances = newToken0Balances;
+    this.newToken1Balances = newToken1Balances;
+  }
+}
+
+export class GetPoolBalanceDeltaResDto extends ChainCallDTO {
+  amount0Delta: string;
+  amount1Delta: string;
+
+  constructor(amount0Delta: string, amount1Delta: string) {
+    super();
+    this.amount0Delta = amount0Delta;
+    this.amount1Delta = amount1Delta;
+  }
+}
 
 export class BurnDto extends SubmitCallDTO {
   @IsNotEmpty()

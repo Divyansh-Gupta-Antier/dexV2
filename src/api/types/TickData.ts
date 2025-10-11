@@ -36,7 +36,7 @@ export class TickData extends ChainObject {
 
   @ChainKey({ position: 0 })
   @IsString()
-  public readonly poolHash: string;
+  public poolHash: string;
 
   @ChainKey({ position: 1 })
   @IsInt()
